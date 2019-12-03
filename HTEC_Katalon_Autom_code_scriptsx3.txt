@@ -1,0 +1,337 @@
+Delete TC 
+--------------
+
+
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable as GlobalVariable
+import com.kms.katalon.core.testdata.ExcelData
+import com.kms.katalon.core.testobject.ConditionType
+
+// Data driven test - copy Use cases from Excel table 
+ExcelData data = findTestData('Excel_TC_list2')
+
+// Open browser and navigate to URL to be tested (AUT) 
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('https://qa-sandbox.apps.htec.rs/')
+
+// Do Login 
+WebUI.click(findTestObject('Page_Sandbox/a_Login'))
+
+WebUI.setText(findTestObject('Page_Sandbox/input_Log In_email'), 'dragan.stankic@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Page_Sandbox/input_Log In_password'), '7yNAhyZfJovLPv5wBPwDxw==')
+
+WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+
+WebUI.click(findTestObject('Page_Sandbox/img_Profile updated_card-img-t'))
+
+
+// Loop to Delete ALL Use cases  ( improvement would be to obtain number of Use cases from the Use-cases page  )   
+for (def index : (data.getRowNumbers()..1)) {
+
+	// In Katalon, DYNAMIC objects, that are NOT in ObjectRepository ( originally initialized using "Recording" feature), 
+	// should be referenced using temporary Object
+	// Object is initilized using "xpath" to the specific element in the list of Use cases
+	//DS from https://forum.katalon.com/t/findtestobject-name-marketid-returns-null/16106/2
+	TestObject to
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/a['+index+']')
+	// Click to edit specific Use case  ( 
+	WebUI.click(to)
+
+	// Click Delete button + Confirm  
+	WebUI.click(findTestObject('Page_Sandbox/i_Edit Use Case_far fa-trash-a'))
+	WebUI.click(findTestObject('Page_Sandbox/button_Delete'))
+}
+
+// Do Logout ( wait for object on the page to be visable) 
+WebUI.waitForElementVisible(findTestObject('Page_Sandbox/a_Logout'), 10)
+WebUI.click(findTestObject('Page_Sandbox/a_Logout'))
+
+// Close browser 
+WebUI.closeBrowser()
+
+_________________________________________________________________________
+
+
+Create TC 
+----------
+
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable as GlobalVariable
+
+import com.kms.katalon.core.testdata.InternalData
+import com.kms.katalon.core.testdata.ExcelData
+
+// Data driven test - copy Use cases from Excel table
+ExcelData data = findTestData('Excel_TC_list2')
+
+// Open browser and navigate to URL to be tested (AUT)
+WebUI.openBrowser('')
+WebUI.navigateToUrl('https://qa-sandbox.apps.htec.rs/')
+
+// Do Login
+WebUI.click(findTestObject('Page_Sandbox/a_Login'))
+
+WebUI.setText(findTestObject('Page_Sandbox/input_Log In_email'), 'dragan.stankic@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Page_Sandbox/input_Log In_password'), '7yNAhyZfJovLPv5wBPwDxw==')
+
+WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+
+// Click on Use cases option
+WebUI.click(findTestObject('Page_Sandbox/h5_Use Cases'))
+
+// Loop to Create ALL Use cases using data copied from Excel table ( data-driven)  
+for (def index : (0..data.getRowNumbers() - 1)) {
+
+	// Make sure button is visable when in loop 
+	WebUI.waitForElementVisible(findTestObject('Page_Sandbox/a_CREATE USE CASE'), 10)
+	WebUI.click(findTestObject('Page_Sandbox/a_CREATE USE CASE'))
+
+	// Fill out Use case form using data copied from Excel table, by column name  ( 1st row of the data table)
+	WebUI.setText(findTestObject('Page_Sandbox/input_New Use Case_title'), data.internallyGetValue('TCName', index))
+	WebUI.setText(findTestObject('Page_Sandbox/textarea_New Use Case_descript'), data.internallyGetValue('TCName', index))
+	WebUI.setText(findTestObject('Page_Sandbox/textarea_TC_descrX'), data.internallyGetValue('Descr', index))
+	WebUI.setText(findTestObject('Page_Sandbox/input_TC_descr_X_expected_resu'), data.internallyGetValue('ExpResult', index))
+	
+	// Current desing uses 3 steps, this could be improved to dynamically read number of steps from Excel table  
+	WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI'), data.internallyGetValue('Step1', index))
+	WebUI.waitForElementVisible(findTestObject('Page_Sandbox/span_ADD STEP'), 3)
+	WebUI.click(findTestObject('Page_Sandbox/span_ADD STEP'))
+		
+	WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI_11'), data.internallyGetValue('Step2', index))
+	WebUI.waitForElementVisible(findTestObject('Page_Sandbox/span_ADD STEP'), 3)
+	WebUI.click(findTestObject('Page_Sandbox/span_ADD STEP'))
+	
+	WebUI.setText(findTestObject('Page_Sandbox/input_X_testStepId-2'), data.internallyGetValue('Step3', index))
+
+	// Press Submit button 	
+	WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+}
+
+// Do Logout ( wait for object on the page to be visable)
+WebUI.waitForElementVisible(findTestObject('Page_Sandbox/a_Logout'), 10)
+WebUI.click(findTestObject('Page_Sandbox/a_Logout'))
+
+// Close browser 
+WebUI.closeBrowser()
+
+
+_________________________________________________________________________
+
+
+Edit TCs
+// Works in loop … 
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable as GlobalVariable
+import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.testdata.ExcelData
+
+// Data driven test - copy Use cases from Excel table
+ExcelData data = findTestData('Excel_TC_list2')
+
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('https://qa-sandbox.apps.htec.rs/')
+
+WebUI.click(findTestObject('Page_Sandbox/a_Login'))
+
+WebUI.setText(findTestObject('Page_Sandbox/input_Log In_email'), 'dragan.stankic@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Page_Sandbox/input_Log In_password'), '7yNAhyZfJovLPv5wBPwDxw==')
+
+WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+
+WebUI.click(findTestObject('Page_Sandbox/img_Profile updated_card-img-t'))
+
+// Loop to Delete ALL Use cases  ( improvement would be to obtain number of Use cases from the Use-cases page  )
+for (def index : (1..data.getRowNumbers())) {
+	
+	// In Katalon, DYNAMIC objects, that are NOT in ObjectRepository ( originally initialized using "Recording" feature),
+	// should be referenced using temporary Object
+	// Object is initilized using "xpath" to the specific element in the list of Use cases
+	//DS from https://forum.katalon.com/t/findtestobject-name-marketid-returns-null/16106/2
+	TestObject to
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/a['+index+']')
+	// Click to edit specific Use case  (
+	WebUI.click(to)
+
+	//WebUI.click(findTestObject('Page_Sandbox/a_aaaaa'))
+
+
+	// Edit fields 
+	//TestObject to
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[1]/input')
+	//String value1 = to.findPropertyValue('value')
+	// Input field has text as "value' attribute 
+	String value2 = WebUI.getAttribute(to, 'value')
+	
+	WebUI.setText(to, value2 + ' title edited')
+	
+	
+	//txt = WebUI.getText(findTestObject('Page_Sandbox/textarea_dddd eee fff'))
+	//WebUI.setText(findTestObject('Page_Sandbox/textarea_dddd eee fff'), txt + ' edited yyy')
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[2]/textarea')
+	// Text-array field has text as content
+	WebUI.setText(to, WebUI.getText(to) + ' desc edited')
+	
+	//txt = WebUI.getText(findTestObject('Page_Sandbox/input_dddd eee fff edited yyy_'))
+	//WebUI.setText(findTestObject('Page_Sandbox/input_dddd eee fff edited yyy_'), 'exp res eeee  edited zzz')
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[3]/input')
+	value2 = WebUI.getAttribute(to, 'value')
+	WebUI.setText(to, value2 + ' Exp Res edited')
+	 
+	
+	//WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI'), 'step1 sss 111 edited www')
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[5]/div/div/input')
+	value2 = WebUI.getAttribute(to, 'value')
+	WebUI.setText(to, value2 +  ' Step1 edited')
+	
+	//WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI_11'), 'step2 sss 222 edited vv')
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[6]/div/div[1]/input')
+	if (to != null) {
+		value2 = WebUI.getAttribute(to, 'value')
+		WebUI.setText(to, value2 + ' Step2 edited')
+	}
+	
+	to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '/html/body/div/div/div[2]/div/div/div/form/div[7]/div/div[1]/input')
+	if (to != null) {
+		// Verify if Step3 exists
+		if (WebUI.verifyElementHasAttribute(to, 'value', 1)) { 
+			value2 = WebUI.getAttribute(to, 'value')
+			WebUI.setText(to, value2 + ' Step3 edited')
+		}
+	}
+		
+	WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+}
+
+// Do Logout ( wait for object on the page to be visable)
+WebUI.waitForElementVisible(findTestObject('Page_Sandbox/a_Logout'), 10)
+WebUI.click(findTestObject('Page_Sandbox/a_Logout'))
+
+// Close browser
+WebUI.closeBrowser()
+
+
+// Works 7:32 pm , Sun 
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable as GlobalVariable
+import com.kms.katalon.core.testobject.ConditionType
+
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('https://qa-sandbox.apps.htec.rs/')
+
+WebUI.click(findTestObject('Page_Sandbox/a_Login'))
+
+WebUI.setText(findTestObject('Page_Sandbox/input_Log In_email'), 'dragan.stankic@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Page_Sandbox/input_Log In_password'), '7yNAhyZfJovLPv5wBPwDxw==')
+
+WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+
+WebUI.click(findTestObject('Page_Sandbox/img_Profile updated_card-img-t'))
+
+WebUI.click(findTestObject('Page_Sandbox/a_aaaaa'))
+
+
+// Edit fields 
+TestObject to
+to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[1]/input')
+//String value1 = to.findPropertyValue('value')
+// Input field has text as "value' attribute 
+String value2 = WebUI.getAttribute(to, 'value')
+
+WebUI.setText(to, value2 + ' title edited')
+
+
+//txt = WebUI.getText(findTestObject('Page_Sandbox/textarea_dddd eee fff'))
+//WebUI.setText(findTestObject('Page_Sandbox/textarea_dddd eee fff'), txt + ' edited yyy')
+to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[2]/textarea')
+// Text-array field has text as content
+WebUI.setText(to, WebUI.getText(to) + ' desc edited')
+
+//txt = WebUI.getText(findTestObject('Page_Sandbox/input_dddd eee fff edited yyy_'))
+//WebUI.setText(findTestObject('Page_Sandbox/input_dddd eee fff edited yyy_'), 'exp res eeee  edited zzz')
+to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[3]/input')
+value2 = WebUI.getAttribute(to, 'value')
+WebUI.setText(to, value2 + ' Exp Res edited')
+ 
+
+//WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI'), 'step1 sss 111 edited www')
+to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[5]/div/div/input')
+value2 = WebUI.getAttribute(to, 'value')
+WebUI.setText(to, value2 +  ' Step1 edited')
+
+//WebUI.setText(findTestObject('Page_Sandbox/input_Use Case Steps_testStepI_11'), 'step2 sss 222 edited vv')
+to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '//*[@id="root"]/div/div[2]/div/div/div/form/div[6]/div/div[1]/input')
+value2 = WebUI.getAttribute(to, 'value')
+WebUI.setText(to, value2 + ' Step2 edited')
+
+//to = new TestObject().addProperty('xpath', ConditionType.CONTAINS, '/html/body/div/div/div[2]/div/div/div/form/div[7]/div/div[1]/input')
+//WebUI.setText(to, WebUI.getText(to) + ' Step3 edited')
+
+
+WebUI.click(findTestObject('Page_Sandbox/button_Submit'))
+
+
+// Do Logout ( wait for object on the page to be visable)
+WebUI.waitForElementVisible(findTestObject('Page_Sandbox/a_Logout'), 10)
+WebUI.click(findTestObject('Page_Sandbox/a_Logout'))
+
+// Close browser
+WebUI.closeBrowser()
+
+_________________________________________________________________________
+
+

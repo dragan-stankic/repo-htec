@@ -1,0 +1,172 @@
+!SESSION 2019-12-03 04:38:10.051 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -runMode=console -projectPath=C:\Dragan\Srbija_trazenje.posla\Interview_Ponude\HTEC_Test\Auto_Katalon\HTEC1\HTEC1.prj -retry=0 -testSuitePath=Test Suites/TestSuite_HTEC2_Delete -executionProfile=default -browserType=Chrome
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data config -runMode=console -consoleLog -projectPath=C:\Dragan\Srbija_trazenje.posla\Interview_Ponude\HTEC_Test\Auto_Katalon\HTEC1\HTEC1.prj -retry=0 -testSuitePath=Test Suites/TestSuite_HTEC2_Delete -executionProfile=default -browserType=Chrome
+
+!ENTRY com.kms.katalon 4 0 2019-12-03 04:38:12.081
+!MESSAGE [SCR] Component definition XMLs not found in bundle com.kms.katalon. The component header value is OSGI-INF/component.xml
+
+!ENTRY com.kms.katalon 4 0 2019-12-03 04:38:12.092
+!MESSAGE [SCR] Component definition XMLs not found in bundle com.kms.katalon. The component header value is OSGI-INF/component.xml
+
+!ENTRY com.kms.katalon 4 0 2019-12-03 04:38:13.085
+!MESSAGE [SCR] Component definition XMLs not found in bundle com.kms.katalon. The component header value is OSGI-INF/component.xml
+
+!ENTRY com.kms.katalon 4 0 2019-12-03 04:38:13.095
+!MESSAGE [SCR] Component definition XMLs not found in bundle com.kms.katalon. The component header value is OSGI-INF/component.xml
+Delete folder: bin
+Delete folder: Libs
+Opening project file: C:\Dragan\Srbija_trazenje.posla\Interview_Ponude\HTEC_Test\Auto_Katalon\HTEC1\HTEC1.prj
+Request sent successfully.
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-12-03 04:38:16.901
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+Starting Groovy-Eclipse compiler resolver.  Specified compiler level: unspecified
+167 2.4.7.xx-201611170128-e46 = ACTIVE
+Parsing custom keywords...
+Generating global variables...
+Project 'HTEC1' opened
+Waiting TestSuite_HTEC2_Delete
+Running TestSuite_HTEC2_Delete
+
+--------------------------------------------------------------------------------
+Test Suites/TestSuite_HTEC2_Delete - Chrome - 20191203_043822............0/1(0%)
+--------------------------------------------------------------------------------
+
+Request sent successfully.
+2019-12-03 04:38:27.297 INFO  c.k.katalon.core.main.TestSuiteExecutor  - START Test Suites/TestSuite_HTEC2_Delete
+2019-12-03 04:38:27.377 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostName = mali3 - LAPTOP-AHC4SI7I
+2019-12-03 04:38:27.379 INFO  c.k.katalon.core.main.TestSuiteExecutor  - os = Windows 10 64bit
+2019-12-03 04:38:27.381 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostAddress = 192.168.0.19
+2019-12-03 04:38:27.383 INFO  c.k.katalon.core.main.TestSuiteExecutor  - katalonVersion = 5.9.1.2
+2019-12-03 04:38:28.087 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2019-12-03 04:38:28.087 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/TC_Delete_UseCase_records
+UPDATE_RECORD Test Cases/TC_Delete_UseCase_records
+2019-12-03 04:38:29.962 DEBUG testcase.TC_Delete_UseCase_records       - 1: data = findTestData("Excel_TC_list2")
+2019-12-03 04:38:31.473 DEBUG testcase.TC_Delete_UseCase_records       - 2: openBrowser("")
+2019-12-03 04:38:32.044 INFO  c.k.k.core.webui.driver.DriverFactory    - Starting 'Chrome' driver
+2019-12-03 04:38:32.108 INFO  c.k.k.core.webui.driver.DriverFactory    - Action delay is set to 0 seconds
+Starting ChromeDriver 2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a) on port 18744
+Only local connections are allowed.
+Dec 03, 2019 4:38:36 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+
+--------------------------------------------------------------------------------
+Test Suites/TestSuite_HTEC2_Delete - Chrome - 20191203_043822............0/1(0%)
+--------------------------------------------------------------------------------
+
+2019-12-03 04:38:39.896 INFO  c.k.k.core.webui.driver.DriverFactory    - sessionId = 6c253695d0595130ffdb1ce5190e0939
+2019-12-03 04:38:39.937 INFO  c.k.k.core.webui.driver.DriverFactory    - browser = Chrome 78.0.3904.108
+2019-12-03 04:38:39.938 INFO  c.k.k.core.webui.driver.DriverFactory    - platform = Windows 10
+2019-12-03 04:38:39.942 INFO  c.k.k.core.webui.driver.DriverFactory    - seleniumVersion = 3.7.1
+2019-12-03 04:38:39.944 INFO  c.k.k.core.webui.driver.DriverFactory    - proxyInformation = ProxyInformation{proxyOption=NO_PROXY, proxyServerType=HTTP, password=, proxyServerAddress=, proxyServerPort=0}
+2019-12-03 04:38:39.946 DEBUG testcase.TC_Delete_UseCase_records       - 3: navigateToUrl("https://qa-sandbox.apps.htec.rs/")
+2019-12-03 04:38:41.155 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/a_Login"))
+2019-12-03 04:38:41.451 DEBUG testcase.TC_Delete_UseCase_records       - 5: setText(findTestObject("Page_Sandbox/input_Log In_email"), "dragan.stankic@gmail.com")
+2019-12-03 04:38:41.875 DEBUG testcase.TC_Delete_UseCase_records       - 6: setEncryptedText(findTestObject("Page_Sandbox/input_Log In_password"), "7yNAhyZfJovLPv5wBPwDxw==")
+2019-12-03 04:38:42.188 DEBUG testcase.TC_Delete_UseCase_records       - 7: click(findTestObject("Page_Sandbox/button_Submit"))
+2019-12-03 04:38:42.362 DEBUG testcase.TC_Delete_UseCase_records       - 8: click(findTestObject("Page_Sandbox/img_Profile updated_card-img-t"))
+2019-12-03 04:38:43.592 DEBUG testcase.TC_Delete_UseCase_records       - 9: for (def index : (data.getRowNumbers()..1))
+2019-12-03 04:38:43.657 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:43.659 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:43.707 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:43.858 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:44.482 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:44.617 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:44.618 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:44.620 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:45.270 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:45.898 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:45.986 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:45.987 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:45.989 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:46.703 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:47.293 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:47.403 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:47.404 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:47.405 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:48.542 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:49.169 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:49.249 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:49.250 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:49.251 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:49.899 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:50.518 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:50.614 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:50.615 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:50.616 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:51.244 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:51.870 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:51.963 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:51.964 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:51.966 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:52.630 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:53.226 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:53.313 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:53.314 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:53.315 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+
+--------------------------------------------------------------------------------
+Test Suites/TestSuite_HTEC2_Delete - Chrome - 20191203_043822............0/1(0%)
+--------------------------------------------------------------------------------
+
+2019-12-03 04:38:54.449 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:55.086 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:55.161 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:55.163 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:55.164 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:55.789 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:56.405 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:56.511 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:56.512 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:56.513 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:57.231 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:57.833 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:57.928 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:57.929 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:57.931 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:58.575 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:38:59.176 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:38:59.257 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:38:59.258 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:38:59.259 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:38:59.863 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:39:00.481 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:39:00.558 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:39:00.558 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:39:00.559 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:39:01.186 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:39:01.809 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:39:01.920 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:39:01.921 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:39:01.922 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:39:02.579 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:39:03.187 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:39:03.269 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:39:03.269 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:39:03.270 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:39:03.890 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:39:04.492 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:39:04.782 DEBUG testcase.TC_Delete_UseCase_records       - 1: to = <not implemented yet for class: org.codehaus.groovy.ast.expr.EmptyExpression>
+2019-12-03 04:39:04.783 DEBUG testcase.TC_Delete_UseCase_records       - 2: to = TestObject().addProperty("xpath", CONTAINS, "//*[@id="root"]/div/div[2]/div/div/a[" + index + "]")
+2019-12-03 04:39:04.785 DEBUG testcase.TC_Delete_UseCase_records       - 3: click(to)
+2019-12-03 04:39:05.389 DEBUG testcase.TC_Delete_UseCase_records       - 4: click(findTestObject("Page_Sandbox/i_Edit Use Case_far fa-trash-a"))
+2019-12-03 04:39:06.012 DEBUG testcase.TC_Delete_UseCase_records       - 5: click(findTestObject("Page_Sandbox/button_Delete"))
+2019-12-03 04:39:06.084 DEBUG testcase.TC_Delete_UseCase_records       - 10: waitForElementVisible(findTestObject("Page_Sandbox/a_Logout"), 10)
+2019-12-03 04:39:06.180 DEBUG testcase.TC_Delete_UseCase_records       - 11: click(findTestObject("Page_Sandbox/a_Logout"))
+2019-12-03 04:39:06.279 DEBUG testcase.TC_Delete_UseCase_records       - 12: closeBrowser()
+2019-12-03 04:39:07.645 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/TC_Delete_UseCase_records
+UPDATE_RECORD Test Cases/TC_Delete_UseCase_records
+2019-12-03 04:39:07.691 INFO  c.k.katalon.core.main.TestSuiteExecutor  - --------------------
+2019-12-03 04:39:07.691 INFO  c.k.katalon.core.main.TestSuiteExecutor  - END Test Suites/TestSuite_HTEC2_Delete
+2019-12-03 04:39:07.691 INFO  c.k.katalon.core.main.TestSuiteExecutor  - ====================
+Prepare report TestSuite_HTEC2_Delete
+
+--------------------------------------------------------------------------------
+Test Suites/TestSuite_HTEC2_Delete - Chrome - 20191203_043822..........1/1(100%)
+--------------------------------------------------------------------------------
+
+Done TestSuite_HTEC2_Delete
